@@ -1,2 +1,44 @@
 @import "custom";
 @import "~bootstrap/scss/bootstrap";
+
+.article {
+  @include make-col-ready();
+  @include make-col(12);
+
+  @include media-breakpoint-up(lg) {
+    @include make-col(6)
+  }
+
+  @extend .mb-3;
+
+  .articlecard {
+    @extend .h-100;
+    @extend .card;
+
+    @extend .border;
+    @extend .border-primary;
+
+    @extend .p-2;
+
+    h2 {
+      @extend .display-4;
+      @extend .text-center;
+      @extend .border-bottom;
+      @extend .border-primary;
+      @extend .pb-2;
+    }
+
+    p {
+      @extend .card-text;
+      @extend .pb-3;
+      @extend .pl-1;
+      @extend .mb-auto;
+    }
+
+    background: none;
+
+    img {
+      @extend .card-img-bottom;
+    }
+  }
+}
