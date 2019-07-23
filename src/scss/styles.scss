@@ -22,20 +22,19 @@ h1, h2, h3, h4, h5, h6 {
     @extend .border;
     @extend .border-primary;
 
-    @extend .p-2;
-
     h2 {
       @extend .display-4;
       @extend .text-center;
       @extend .border-bottom;
       @extend .border-primary;
       @extend .pb-2;
+      @extend .mx-2;
     }
 
     p {
       @extend .card-text;
       @extend .pb-3;
-      @extend .pl-1;
+      @extend .px-3;
       @extend .mb-auto;
     }
 
@@ -67,12 +66,14 @@ h1, h2, h3, h4, h5, h6 {
 
     input[type="email"] {
       @extend .form-control;
+      @extend .rounded-left;
     }
 
     input[type="submit"] {
       @extend .input-group-append;
       @extend .btn;
       @extend .btn-secondary;
+      @extend .rounded-right;
     }
   }
 }
