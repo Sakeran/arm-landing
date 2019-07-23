@@ -1,14 +1,30 @@
 @import "custom";
 @import "~bootstrap/scss/bootstrap";
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Racing Sans One', ;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Racing Sans One";
 }
 
 header {
   @extend .jumbotron;
   @extend .jumbotron-fluid;
   
+  min-height: 40vh;
+
+  @include media-breakpoint-up(md) {
+    min-height: 70vh;
+  }
+  
+  background-image: url("./images/geo_abs.png");
+  background-size: 50%;
+
+
+
   .header__container {
     @extend .container;
     h1 {
@@ -23,7 +39,7 @@ header {
   @include make-col(12);
 
   @include media-breakpoint-up(lg) {
-    @include make-col(6)
+    @include make-col(6);
   }
 
   @extend .mb-3;
@@ -65,7 +81,7 @@ header {
   @extend .text-dark;
 
   @extend .mb-1;
-  
+
   h2 {
     @extend .h1;
     @extend .text-center;
