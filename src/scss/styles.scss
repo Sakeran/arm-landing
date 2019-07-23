@@ -55,29 +55,24 @@ h1, h2, h3, h4, h5, h6 {
   @extend .mb-1;
   
   h2 {
+    @extend .h1;
     @extend .text-center;
-    @extend .display-3;
+    @extend .mb-3;
   }
 
   form {
-    max-width: map-get($container-max-widths, "lg");
-    @extend .pt-3;
+    max-width: map-get($container-max-widths, "md");
     @extend .mx-auto;
+    @extend .input-group;
 
     input[type="email"] {
       @extend .form-control;
-      @extend .form-control-lg;
     }
 
     input[type="submit"] {
+      @extend .input-group-append;
       @extend .btn;
       @extend .btn-secondary;
-      @extend .btn-lg;
-      @extend .btn-block;
-
-      @extend .w-75;
-      @extend .mx-auto;
-      @extend .mt-3;
     }
   }
 }
