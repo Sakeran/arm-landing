@@ -163,18 +163,23 @@ header {
   @include make-col-ready();
   @include make-col(12);
 
-  @include media-breakpoint-up(lg) {
+  @include media-breakpoint-up(md) {
     @include make-col(6);
   }
 
   @extend .mb-3;
+  @extend .mb-lg-5;
 
   .articlecard {
     @extend .h-100;
     @extend .card;
-
+    
     @extend .border;
     @extend .border-primary;
+
+    @extend .mx-lg-auto;
+    max-width: 700px;
+    background: none;
 
     h2 {
       @extend .display-4;
@@ -192,7 +197,6 @@ header {
       @extend .mb-auto;
     }
 
-    background: none;
 
     img {
       @extend .card-img-bottom;
