@@ -51,6 +51,8 @@ h1, h2, h3, h4, h5, h6 {
   @extend .jumbotron;
   @extend .bg-primary;
   @extend .text-dark;
+
+  @extend .mb-1;
   
   h2 {
     @extend .text-center;
@@ -76,6 +78,28 @@ h1, h2, h3, h4, h5, h6 {
       @extend .w-75;
       @extend .mx-auto;
       @extend .mt-3;
+    }
+  }
+}
+
+footer {
+  @extend .text-center;
+  @extend .small;
+
+  p {
+    @extend .m-0;
+    @extend .mt-3;
+  }
+
+  ul {
+    @extend .nav;
+    @extend .justify-content-center;
+
+    li {
+      @extend .nav-item;
+      a {
+        @extend .nav-link;
+      }
     }
   }
 }
