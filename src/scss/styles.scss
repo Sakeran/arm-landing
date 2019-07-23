@@ -5,6 +5,19 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Racing Sans One', ;
 }
 
+header {
+  @extend .jumbotron;
+  @extend .jumbotron-fluid;
+  
+  .header__container {
+    @extend .container;
+    h1 {
+      width: max-content;
+      @extend .mx-auto;
+    }
+  }
+}
+
 .article {
   @include make-col-ready();
   @include make-col(12);
