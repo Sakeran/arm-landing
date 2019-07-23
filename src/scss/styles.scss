@@ -1,6 +1,20 @@
 @import "custom";
 @import "~bootstrap/scss/bootstrap";
 
+@mixin use-drop-shadow {
+  filter: drop-shadow(0px 4px 20px black);
+}
+
+@keyframes bg-scroll {
+  from {
+    background-position-x: 0%;
+  }
+
+  to {
+    background-position-x: 100%;
+  }
+}
+
 h1,
 h2,
 h3,
@@ -11,25 +25,42 @@ h6 {
 }
 
 header {
-  @extend .jumbotron;
-  @extend .jumbotron-fluid;
+  @extend .border-bottom;
+  @extend .border-secondary;
   
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 40vh;
+
+  background-image: url("./images/geo_abs.png");
+  background-size: 75%;
+  background-attachment: fixed;
+  animation: 60s linear infinite bg-scroll;
 
   @include media-breakpoint-up(md) {
     min-height: 70vh;
+    background-size: 50%;
   }
-  
-  background-image: url("./images/geo_abs.png");
-  background-size: 50%;
 
+  h1 {
+    @extend .display-2;
+    @extend .text-hide;
+    background-image: url("./images/logo.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50%;
+    max-width: map-get($container-max-widths, "sm");
+    padding-top: 50%;
 
+    @include use-drop-shadow();
 
-  .header__container {
-    @extend .container;
-    h1 {
-      width: max-content;
-      @extend .mx-auto;
+    @include media-breakpoint-up(md) {
+      width: 40%;
+    }
+    @include media-breakpoint-up(lg) {
+      width: 30%;
     }
   }
 }
