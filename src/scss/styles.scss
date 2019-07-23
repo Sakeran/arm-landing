@@ -42,3 +42,36 @@
     }
   }
 }
+
+.signup {
+  @extend .jumbotron;
+  @extend .bg-primary;
+  @extend .text-dark;
+  
+  h2 {
+    @extend .text-center;
+    @extend .display-3;
+  }
+
+  form {
+    max-width: map-get($container-max-widths, "lg");
+    @extend .pt-3;
+    @extend .mx-auto;
+
+    input[type="email"] {
+      @extend .form-control;
+      @extend .form-control-lg;
+    }
+
+    input[type="submit"] {
+      @extend .btn;
+      @extend .btn-secondary;
+      @extend .btn-lg;
+      @extend .btn-block;
+
+      @extend .w-75;
+      @extend .mx-auto;
+      @extend .mt-3;
+    }
+  }
+}
