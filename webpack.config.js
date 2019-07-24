@@ -61,7 +61,15 @@ module.exports = env => {
           scssLoaders,
           {
             test: /\.(png|svg|jpg|gif)$/,
-            use: "file-loader"
+            use: [
+              "file-loader",
+              {
+                loader: "image-webpack-loader",
+                options: {
+                  disable: isDevelopment
+                }
+              }
+            ]
           }
         ]
       },
