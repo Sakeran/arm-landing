@@ -1,34 +1,67 @@
 const path = require("path");
-const SharedConfig = require("./shared.config");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCSSExtractTextPlugin = require("mini-css-extract-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
-module.exports = {
-  mode: "development",
-  devServer: {
-    contentBase: path.join(__dirname, "dist"),
-    port: 8000,
-    hot: true
-  },
-  module: {
-    rules: [
+module.exports = env => {
+  const isDevelopment = !(env && env.production);
+  const mode = isDevelopment ? "development" : "production";
+
+  const scssLoaders = {
+    test: /\.(scss)$/,
+    use: [
+      isDevelopment
+        ? "style-loader"
+        : { loader: MiniCSSExtractTextPlugin.loader },
+      "css-loader",
       {
-        test: /\.(scss)$/,
-        use: [
-          "style-loader",
-          "css-loader",
+        loader: "postcss-loader",
+        options: {
+          plugins: () => [require("precss"), require("autoprefixer")]
+        }
+      },
+      "sass-loader"
+    ]
+  };
+
+  const sharedPlugins = [
+    new HtmlWebpackPlugin({
+      title: "Veritus Sigma",
+      template: "./src/index.html"
+    })
+  ];
+
+  const modePlugins = isDevelopment
+    ? []
+    : [new MiniCSSExtractTextPlugin(), new CleanWebpackPlugin()];
+
+  const plugins = [...sharedPlugins, ...modePlugins];
+
+  const inclusions = isDevelopment
+    ? {
+        devServer: {
+          contentBase: path.join(__dirname, "dist"),
+          port: 8000,
+          hot: true
+        }
+      }
+    : {};
+
+  return Object.assign(
+    {},
+    {
+      mode,
+      module: {
+        rules: [
+          scssLoaders,
           {
-            loader: "postcss-loader",
-            options: {
-              plugins: () => [require("precss"), require("autoprefixer")]
-            }
-          },
-          "sass-loader"
+            test: /\.(png|svg|jpg|gif)$/,
+            use: "file-loader"
+          }
         ]
       },
-      {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: 'file-loader'
-      }
-    ]
-  },
-  ...SharedConfig
+      plugins
+    },
+    inclusions
+  );
 };
