@@ -51,23 +51,23 @@
   }
 }
 
-@keyframes trans-horiz {
+@keyframes box1-anim {
   from {
-    left: -15vw;
+    transform: translateX(-100%);
   }
 
   to {
-    left: 115vw;
+    transform: translateX(100vw);
   }
 }
 
-@keyframes box-sway {
-  from {
-    transform: rotate(-90deg);
+@keyframes box2-anim {
+  0% {
+    transform: translateX(-100%) scale(0.5);
   }
 
-  to {
-    transform: rotate(90deg);
+  100% {
+    transform: translateX(100vw) scale(0.5);
   }
 }
 
@@ -151,14 +151,16 @@ header {
   .header__box1 {
     @include make-header-box();
     top: 200px;
-    animation: 30s linear infinite trans-horiz;
+    left: 0;
+    animation: 30s linear infinite box1-anim;
     z-index: 0;
   }
 
   .header__box2 {
     @include make-header-box();
     bottom: 50px;
-    animation: 25s ease-in-out infinite trans-horiz;
+    left: 0;
+    animation: 25s ease-in-out infinite box2-anim;
     animation-direction: reverse;
     transform: scale(0.5);
     z-index: 3;
