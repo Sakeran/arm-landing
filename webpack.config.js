@@ -17,7 +17,12 @@ module.exports = env => {
       {
         loader: "postcss-loader",
         options: {
-          plugins: () => [require("precss"), require("autoprefixer")]
+          plugins: () =>
+            [
+              require("precss"),
+              require("autoprefixer"),
+              !isDevelopment && require("cssnano")
+            ].filter(p => !!p)
         }
       },
       "sass-loader"
