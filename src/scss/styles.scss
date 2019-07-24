@@ -1,5 +1,18 @@
 @import "custom";
-@import "~bootstrap/scss/bootstrap";
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/input-group";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/jumbotron";
+@import "~bootstrap/scss/utilities";
 
 @mixin make-header-box {
   display: none;
